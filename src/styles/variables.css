@@ -1,0 +1,28 @@
+$header-height: 50px;
+$footer-height: 30px;
+$toolbar-height: 50px;
+$input-height: 26px;
+
+$input-font-size: 16px;
+$button-font-size: 16px;
+
+$color-app-bg: #FDFBFF;
+
+$color-active-link: #229caf;
+
+$color-input-border: #a9c9f8;
+$color-button-bg: #8FD7E8;
+
+$color-header-bg: #AAFFF8;
+$color-breadcrumbs-border: #8FD2E8;
+$color-breadcrumbs-bg: #8FE8C3;
+
+$color-footer-bg: #E9E7EB;
+
+$color-toolbar-bg: #D0FFF8;
+
+$color-courses-border: #8FD2E8;
+$color-courses-bg: #DEFFF8;
+
+$color-popup-border: #8FD2E8;
+$color-popup-bg: #FDFBFF;

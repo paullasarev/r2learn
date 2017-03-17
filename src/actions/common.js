@@ -6,3 +6,17 @@ export function someActionCreator(payload) {
         payload
     };
 }
+
+export function loginActionCreator(payload) {
+  return {
+    type: actionTypes.LOGIN_ACTION_TYPE,
+    payload
+  };
+}
+
+export function loginActionCreator(payload) {
+  return {
+    type: actionTypes.LOGIN_ACTION_TYPE,
+    payload
+  };
+}
