@@ -40,7 +40,7 @@ class PageMain extends React.Component {
 let mapStateToProps = state => ({app: state.app});
 let mapDispatchToProps = dispatch => (
   bindActionCreators({
-    loginActionCreator
+    someActionCreator
   }, dispatch)
 );
 

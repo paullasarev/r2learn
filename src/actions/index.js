@@ -1,1 +1,5 @@
-export { someActionCreator } from './common';
+export {
+  someActionCreator,
+  loginActionCreator,
+  logoutActionCreator
+} from './common';

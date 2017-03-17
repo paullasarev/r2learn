@@ -7,7 +7,6 @@ export class Header extends React.Component {
   static propTypes = {
     loginActionCreator: PropTypes.func.isRequired,
     logoutActionCreator: PropTypes.func.isRequired,
-    title: PropTypes.string
   };
 
   constructor() {
@@ -16,7 +15,7 @@ export class Header extends React.Component {
   }
 
   componentDidMount() {
-    this.props.loginActionCreator();
+    // this.props.loginActionCreator();
   }
 
   render() {

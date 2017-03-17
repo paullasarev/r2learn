@@ -13,8 +13,8 @@ require('./app.css');
 export default class App extends React.Component {
   render() {
     return (
-      <div class="app">
-        <div class="app__header">
+      <div className="app">
+        <div className="app__header">
           <Header></Header>
         </div>
         <div className="app__content">
@@ -24,7 +24,7 @@ export default class App extends React.Component {
             <Route path='*' component={ PageError }/>
           </Switch>
         </div>
-        <div class="app__footer">
+        <div className="app__footer">
           <Footer></Footer>
         </div>
       </div>

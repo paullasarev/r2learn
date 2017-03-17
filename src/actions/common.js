@@ -7,16 +7,15 @@ export function someActionCreator(payload) {
     };
 }
 
-export function loginActionCreator(payload) {
+export function loginActionCreator(user) {
   return {
     type: actionTypes.LOGIN_ACTION_TYPE,
-    payload
+    user
   };
 }
 
-export function loginActionCreator(payload) {
+export function logoutActionCreator() {
   return {
-    type: actionTypes.LOGIN_ACTION_TYPE,
-    payload
+    type: actionTypes.LOGOUT_ACTION_TYPE,
   };
 }
