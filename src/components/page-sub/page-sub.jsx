@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { someActionCreator } from '../../actions/index';
 
-const DEFAULT_PAGE_TITLE = 'второстепенная страница';
+const DEFAULT_PAGE_TITLE = 'subpage';
 
 class PageSub extends React.Component {
     static propTypes = {

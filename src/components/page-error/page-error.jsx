@@ -6,7 +6,7 @@ export default class PageError extends React.Component {
         message: PropTypes.string
     };
     static defaultProps = {
-        message: 'Такой страницы не существует :('
+        message: 'no such page :('
     };
     render() {
         const { message } = this.props;
@@ -14,7 +14,7 @@ export default class PageError extends React.Component {
         return (
             <div>
                 <p>{message}</p>
-                <Link to='/'>На главную страницу</Link>
+                <Link to='/'>To main page</Link>
             </div>
         );
     }

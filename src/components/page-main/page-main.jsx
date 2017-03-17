@@ -5,7 +5,7 @@ import noop from 'lodash/noop';
 
 import { someActionCreator } from '../../actions/index';
 
-const DEFAULT_PAGE_TITLE = 'главная страница';
+const DEFAULT_PAGE_TITLE = 'main page';
 
 class PageMain extends React.Component {
     static propTypes = {

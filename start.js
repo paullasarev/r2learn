@@ -4,7 +4,6 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config.js');
 const frontendServerPort = 8081;
 
-webpackConfig.entry.app.unshift('webpack-hot-middleware/client');
 webpackConfig.entry.app.unshift('webpack/hot/only-dev-server');
 webpackConfig.entry.app.unshift(`webpack-dev-server/client?http://localhost:${frontendServerPort}`);
 webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
