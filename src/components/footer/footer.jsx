@@ -1,5 +1,7 @@
 import React from 'react';
 
+require('./footer.css');
+
 export default class Footer extends React.Component {
   constructor() {
     super();
@@ -12,7 +14,7 @@ export default class Footer extends React.Component {
     return (
       <div className="footer">
         <div className="footer__title">
-          footer
+          copyright 2017
         </div>
       </div>
     );

@@ -118,13 +118,14 @@ const webpackConfig = {
                 url: "rebase"
             }),
             require('postcss-nested'),
-            require('postcss-calc'),
             require('postcss-mixins'),
             require('postcss-for'),
             require('postcss-each'),
             require('postcss-simple-vars')({
                 silent: true
             }),
+            require('postcss-automath'),
+            require('postcss-calc'),
             require('postcss-custom-media'),
             require('postcss-custom-properties'),
             require('autoprefixer')({
