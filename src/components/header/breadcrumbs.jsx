@@ -11,7 +11,7 @@ export class Breadcrumbs extends React.Component {
   };
 
   static defaultProps = {
-    breadcrumbs: [new Breadcrumb("course", "/course"), new Breadcrumb("new")]
+    breadcrumbs: [new Breadcrumb("course", "/courses"), new Breadcrumb("new")]
   }
 
   constructor() {
