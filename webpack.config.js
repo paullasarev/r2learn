@@ -117,8 +117,8 @@ const webpackConfig = {
             require("postcss-url")({
                 url: "rebase"
             }),
-            require('postcss-nested'),
             require('postcss-mixins'),
+            require('postcss-nested'),
             require('postcss-for'),
             require('postcss-each'),
             require('postcss-simple-vars')({

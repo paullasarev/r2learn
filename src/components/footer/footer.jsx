@@ -3,13 +3,6 @@ import React from 'react';
 require('./footer.css');
 
 export default class Footer extends React.Component {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div className="footer">

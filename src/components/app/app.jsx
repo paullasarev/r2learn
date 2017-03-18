@@ -1,8 +1,8 @@
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 import PageMain from '../page-main/page-main';
-import PageSub from '../page-sub/page-sub';
+import Login from '../login/login';
 import PageError from '../page-error/page-error';
 
 import Header from '../header/header';
@@ -19,8 +19,9 @@ export default class App extends React.Component {
         </div>
         <div className="app__content">
           <Switch>
-            <Route exact={ true } path={ '/' } component={ PageMain }/>
-            <Route exact={ true } path={ '/sub' } component={ PageSub }/>
+            <Redirect exact={ true }  from='/' to='/courses'/>
+            <Route exact={ true } path={ '/login' } component={ Login }/>
+            <Route exact={ true } path={ '/courses' } component={ PageMain }/>
             <Route path='*' component={ PageError }/>
           </Switch>
         </div>

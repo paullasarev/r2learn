@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.user {
+  font-size: 14px;
+  text-align: right;
+
+  &__info {
+  }
+
+  &__logoff, &__login {
+    color: $color-active-link;
+    text-align: right;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: darken($color-active-link, 20%);
+    }
+  }
+}
