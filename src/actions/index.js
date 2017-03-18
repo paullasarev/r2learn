@@ -1,5 +1,7 @@
 export {
   someActionCreator,
   login,
-  logout
+  logout,
+  setError,
+  setAppTitle,
 } from './common';

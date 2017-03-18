@@ -1,9 +1,13 @@
 import {combineReducers} from 'redux';
 
-import appReducer from './app-reducer';
+import app from './app';
+import authUser from './auth-user';
+import globalError from './global-error';
 
 const reducers = {
-  app: appReducer
+  app,
+  authUser,
+  globalError,
 };
 
 export default combineReducers(reducers);

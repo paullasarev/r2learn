@@ -3,7 +3,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 
 import PageMain from '../page-main/page-main';
 import Login from '../login/login';
-import PageError from '../page-error/page-error';
+import Error from '../error/error';
 
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -22,7 +22,8 @@ export default class App extends React.Component {
             <Redirect exact={ true }  from='/' to='/courses'/>
             <Route exact={ true } path={ '/login' } component={ Login }/>
             <Route exact={ true } path={ '/courses' } component={ PageMain }/>
-            <Route path='*' component={ PageError }/>
+            <Route exact={ true } path={ '/error/(:msg)' } component={ Error }/>
+            <Route path='*' component={ Error }/>
           </Switch>
         </div>
         <div className="app__footer">

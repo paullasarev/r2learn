@@ -1,18 +1,15 @@
 import * as actionTypes from '../actions/types';
 
 let initialState = {
-  random: null
+  title: "r2",
 };
 
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.SOME_ACTION_TYPE: {
-      const random = Math.random();
-
-      return Object.assign(
-        {},
-        {random}
-      );
+    case actionTypes.SET_APP_TITLE_ACTION_TYPE: {
+      return {
+        title: action.payload,
+      }
     }
     default:
       return state;

@@ -8,7 +8,7 @@ import {User} from "../../entities/user";
 import {FormGroup, FormInputText, FormInputPassword} from "../form/form";
 import {Action} from "../action/action";
 
-import {login, logout} from '../../actions/index';
+import {login, logout, setError} from '../../actions/index';
 
 require('./login.css');
 
@@ -31,6 +31,10 @@ export class Login extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.logout();
+  }
+
   onChangeUserName = (value) => {
     this.setState({username: value});
   }
@@ -40,11 +44,20 @@ export class Login extends React.Component {
   }
 
   doCancel = () => {
-    console.log('doCancel')
+    this.props.history.goBack();
   }
 
   doLogin = () => {
-    console.log('doLogin')
+    this.props.login(new User(this.state.username, this.state.password));
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.authUser.error) {
+      this.props.setError(props.authUser.error);
+      this.props.history.push('/error');
+    } else if (props.authUser.isLogged) {
+      this.props.history.goBack();
+    }
   }
 
   render() {
@@ -70,6 +83,6 @@ export class Login extends React.Component {
 }
 
 export default connect(
-  state => ({user: state.user}),
-  dispatch => (bindActionCreators({login, logout}, dispatch))
+  state => ({authUser: state.authUser}),
+  dispatch => (bindActionCreators({login, logout, setError}, dispatch))
 )(Login);

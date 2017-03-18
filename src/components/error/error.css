@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.error {
+  &__message {
+    display: block;
+    margin-top: 20px;
+    text-align: center
+  }
+
+  &__link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+
+    cursor: pointer;
+    color: $color-active-link;
+    text-decoration: none;
+    &:hover {
+      color: darken($color-active-link, 20%);
+    }
+  }
+}
