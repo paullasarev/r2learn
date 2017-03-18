@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.breadcrumbs {
+  font-size: 14px;
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child):after {
+      display: inline-block;
+      margin-left: 2px;
+      margin-right: 2px;
+      content: '>';
+      color: initial;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    color: $color-active-link;
+    text-decoration: none;
+    &:hover {
+      color: darken($color-active-link, 20%);
+    }
+  }
+}

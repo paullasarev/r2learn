@@ -1,8 +1,11 @@
 @import "../../styles/variables";
 
 .logo {
+  display: block;
+
   height: $header-height - 4px;
   width: $header-height - 4px;
+
   background-image: url(./logo.png);
   background-position: center;
   background-repeat: no-repeat;

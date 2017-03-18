@@ -1,5 +1,5 @@
 export {
   someActionCreator,
-  loginActionCreator,
-  logoutActionCreator
+  login,
+  logout
 } from './common';

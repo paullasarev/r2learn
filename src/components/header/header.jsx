@@ -3,15 +3,21 @@ import {Link} from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import {loginActionCreator, logoutActionCreator} from '../../actions/index';
+import {login, logout} from '../../actions/index';
+import {Breadcrumbs} from './breadcrumbs';
 
 require('./header.css');
 require('./logo.css');
 
 export class Header extends React.Component {
   static propTypes = {
-    loginActionCreator: PropTypes.func.isRequired,
-    logoutActionCreator: PropTypes.func.isRequired,
+    isLogged: PropTypes.boolean,
+    login: PropTypes.func.isRequired,
+    logout: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    isLogged: true,
   };
 
   constructor() {
@@ -27,31 +33,18 @@ export class Header extends React.Component {
     return (
       <div className="header">
         <div className="header__logo">
-          <div className="logo" Link="/courses"></div>
+          <Link className="logo" to="/courses"/>
         </div>
-        <div className="header__title">
-          r2
-        </div>
+        <div className="header__title">r2</div>
+        {this.props.isLogged ?
+          <div className="header__breadcrumbs"><Breadcrumbs/></div>
+          :null}
       </div>
     );
   }
 }
 
-
-// let mapStateToProps = state => ({app: state.app});
-// let mapDispatchToProps = dispatch => (
-//   bindActionCreators({
-//     loginActionCreator,
-//     logoutActionCreator
-//   }, dispatch)
-// );
-
-// export {Header};
 export default connect(
   state => ({app: state.app}),
-  dispatch => (
-      bindActionCreators({
-        loginActionCreator,
-        logoutActionCreator
-      }, dispatch))
+  dispatch => (bindActionCreators({login,logout}, dispatch))
 )(Header);
