@@ -1,7 +1,6 @@
-@define-mixin background-image $url, $size {
+@define-mixin background-image-size $size {
   height: $size;
   width: $size;
-  background-image: url($url);
   background-position: center;
   background-repeat: no-repeat;
   background-size: $size $size;

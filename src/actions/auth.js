@@ -1,16 +1,8 @@
-import * as actionTypes from './types';
+import { createAction } from 'redux-actions';
+import * as types from './types';
 
-export function login(payload) {
-  return {
-    type: actionTypes.AUTH_LOGIN,
-    payload
-  };
-}
+import { assertType } from '../utils/assert';
+import { User } from '../entities/user';
 
-export function logout(payload) {
-  return {
-    type: actionTypes.AUTH_LOGOUT,
-    payload
-  };
-}
-
+export const login = createAction(types.AUTH_LOGIN, assertType.bind(null, User));
+export const logout = createAction(types.AUTH_LOGOUT);

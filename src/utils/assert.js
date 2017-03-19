@@ -1,6 +1,6 @@
 require('better-assert/better-assert-browser');
 
-export function assertType(val, type) {
+export function assertType(type, val) {
   if (typeof type === "string") {
     window.assert(typeof val === type);
   } else {

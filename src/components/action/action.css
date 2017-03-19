@@ -11,7 +11,8 @@
     vertical-align: middle;
 
     &--add {
-      @mixin background-image  "./OOjs_UI_icon_add.svg", $input-height - 4;
+      @mixin background-image-size $input-height - 4;
+      background-image: url(./OOjs_UI_icon_add.svg);
       position: absolute;
       left: 2px;
       top: 2px;

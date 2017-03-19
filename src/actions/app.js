@@ -1,22 +1,6 @@
-import * as actionTypes from './types';
+import { createAction } from 'redux-actions';
+import * as types from './types';
+import { assertType } from '../utils/assert';
 
-export function someActionCreator(payload) {
-    return {
-        type: actionTypes.SOME_ACTION_TYPE,
-        payload
-    };
-}
-
-export function setError(payload) {
-  return {
-    type: actionTypes.APP_SET_ERROR,
-    payload
-  };
-}
-
-export function setAppTitle(payload) {
-  return {
-    type: actionTypes.APP_SET_TITLE,
-    payload
-  };
-}
+export const setError = createAction(types.APP_SET_ERROR, assertType.bind(null, Error));
+export const setTitle = createAction(types.APP_SET_TITLE);
