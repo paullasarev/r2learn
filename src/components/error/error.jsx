@@ -14,7 +14,7 @@ export class Error extends React.Component {
   };
 
   render() {
-    const message = this.props.globalError.error && this.props.globalError.error.toString() || this.props.message;
+    const message = this.props.app.error && this.props.app.error.toString() || this.props.message;
 
     return (
       <div className="error">
@@ -26,6 +26,6 @@ export class Error extends React.Component {
 }
 
 export default connect(
-  state => ({globalError: state.globalError}),
+  state => ({app: state.app}),
   dispatch => (bindActionCreators({}, dispatch))
 )(Error);

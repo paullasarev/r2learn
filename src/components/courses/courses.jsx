@@ -16,10 +16,10 @@ export class Courses extends React.Component {
   };
 
   static defaultProps = {
-    courses: [
-      new Course('1', 'javascript', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga tenetur illum, reprehenderit possimus architecto optio maxime dolore iure, nobis, provident. Repellat quod cupiditate doloremque esse natus vero delectus dolores!', 600),
-      new Course('2', 'CSS', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora repellendus deleniti temporibus nesciunt culpa recusandae excepturi mollitia minima, provident commodi maxime illum voluptates architecto et nobis corrupti. Optio esse, quod.', 300)
-    ]
+    // courses: [
+    //   new Course('1', 'javascript', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore fuga tenetur illum, reprehenderit possimus architecto optio maxime dolore iure, nobis, provident. Repellat quod cupiditate doloremque esse natus vero delectus dolores!', 600),
+    //   new Course('2', 'CSS', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora repellendus deleniti temporibus nesciunt culpa recusandae excepturi mollitia minima, provident commodi maxime illum voluptates architecto et nobis corrupti. Optio esse, quod.', 300)
+    // ]
   };
 
   constructor() {
@@ -28,6 +28,7 @@ export class Courses extends React.Component {
   }
 
   componentDidMount() {
+    this.props.read("");
   }
 
         // <div class="courses__toolbar">
@@ -46,10 +47,11 @@ export class Courses extends React.Component {
 
   onFind = (filter) => {
     console.log('onFind', filter)
+    this.props.read(filter);
   }
 
   onAdd = () => {
-    console.log('onAdd')
+    this.props.history.push('/courses/new');
   }
 
   onRemove = (course) => {
@@ -57,12 +59,11 @@ export class Courses extends React.Component {
   }
 
   onEdit = (course) => {
-    console.log('onEdit', course)
      this.props.history.push('/courses/' + course.id);
   }
 
   render() {
-    let courses = this.props.courses.map((item, key) => (
+    let courses = this.props.courses.items.map((item, key) => (
       <div className="courses__item">
         <CourseComponent course={item} edit={this.onEdit} remove={this.onRemove} key={key}/>
       </div>
@@ -76,12 +77,15 @@ export class Courses extends React.Component {
         <div className="courses__list">
           { courses }
         </div>
+        {this.props.courses.isLoading ?
+          <div className="courses__loading">Is loading...</div>
+          : null}
       </div>
     );
   }
 }
 
 export default connect(
-  state => ({courses1: state.courses1}),
+  state => ({courses: state.courses}),
   dispatch => (bindActionCreators({remove, read, create}, dispatch))
 )(Courses);

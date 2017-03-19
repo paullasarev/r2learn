@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/types';
 
 let initialState = {
   title: "r2",
+  error: null
 };
 
 export default function appReducer(state = initialState, action) {
@@ -9,6 +10,11 @@ export default function appReducer(state = initialState, action) {
     case actionTypes.APP_SET_TITLE: {
       return {
         title: action.payload,
+      }
+    }
+    case actionTypes.APP_SET_ERROR: {
+      return {
+        error: action.payload,
       }
     }
     default:

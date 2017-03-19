@@ -2,12 +2,12 @@ import {combineReducers} from 'redux';
 
 import app from './app';
 import authUser from './auth-user';
-import globalError from './global-error';
+import courses from './courses';
 
 const reducers = {
   app,
   authUser,
-  globalError,
+  courses,
 };
 
 export default combineReducers(reducers);

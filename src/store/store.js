@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
@@ -14,7 +14,7 @@ export function configureStore(initialState = {}) {
       applyMiddleware(
         thunk,
         promise,
-        logger({diff:true})
+        // logger({diff:false})
       ),
     )
   );
