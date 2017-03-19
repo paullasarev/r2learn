@@ -141,9 +141,10 @@ const webpackConfig = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'My App',
+            title: 'r2',
             inject: 'body',
-            template: 'src/stub.html'
+            template: 'src/index.html',
+            favicon: 'src/favicon.ico'
         })
     ]
 };
