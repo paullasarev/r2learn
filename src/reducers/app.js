@@ -6,7 +6,7 @@ let initialState = {
 
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.SET_APP_TITLE_ACTION_TYPE: {
+    case actionTypes.APP_SET_TITLE: {
       return {
         title: action.payload,
       }

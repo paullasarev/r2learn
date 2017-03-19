@@ -10,13 +10,13 @@ initialState.isLogged = true;
 export default function authUserReducer(state = initialState, action) {
   console.log('authUserReducer', action)
   switch (action.type) {
-    case actionTypes.LOGOUT_ACTION_TYPE: {
+    case actionTypes.AUTH_LOGOUT: {
       return new AuthUser();
     }
-    case actionTypes.LOGIN_ACTION_TYPE: {
+    case actionTypes.AUTH_LOGIN: {
       let auth = new AuthUser();
       let user = action.payload;
-      assertType(user, User);
+      assertType(User, user);
       auth.name = user.name;
       auth.password = user.password;
       auth.isLogged = true;

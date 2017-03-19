@@ -6,7 +6,7 @@ let initialState = {
 
 export default function globalErrorReducer(state = initialState, action) {
   switch (action.type) {
-    case actionTypes.SET_ERROR_ACTION_TYPE: {
+    case actionTypes.APP_SET_ERROR: {
       console.log('globalErrorReducer', action)
       return {
         error: action.payload,

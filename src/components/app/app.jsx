@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import PageMain from '../page-main/page-main';
+import Courses from '../courses/courses';
 import Login from '../login/login';
 import Error from '../error/error';
 
@@ -21,7 +21,7 @@ export default class App extends React.Component {
           <Switch>
             <Redirect exact={ true }  from='/' to='/courses'/>
             <Route exact={ true } path={ '/login' } component={ Login }/>
-            <Route exact={ true } path={ '/courses' } component={ PageMain }/>
+            <Route exact={ true } path={ '/courses' } component={ Courses }/>
             <Route exact={ true } path={ '/error/(:msg)' } component={ Error }/>
             <Route path='*' component={ Error }/>
           </Switch>

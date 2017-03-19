@@ -8,7 +8,7 @@ import {User} from "../../entities/user";
 import {FormGroup, FormInputText, FormInputPassword} from "../form/form";
 import {Action} from "../action/action";
 
-import {login, logout, setError} from '../../actions/index';
+import {login, logout, setError} from '../../actions/auth';
 
 require('./login.css');
 

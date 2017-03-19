@@ -6,4 +6,6 @@ export function assertType(val, type) {
   } else {
     window.assert(val instanceof type);
   }
+
+  return val;
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {PageMain} from './page-main';
+import {Courses} from './courses';
 
 function getContainer() {
   return document.getElementById('container');
 }
 
-describe('page-main component', () => {
+describe('courses component', () => {
   beforeEach(() => {
     let domContainerNode = document.createElement('div');
     domContainerNode.setAttribute('id', 'container');
@@ -21,10 +21,10 @@ describe('page-main component', () => {
 
   it('should render without problems', () => {
     let domContainerNode = getContainer();
-    let pageMain = ReactDOM.render(<PageMain />, domContainerNode);
+    let pageMain = ReactDOM.render(<Courses />, domContainerNode);
     let pageMainNode = ReactDOM.findDOMNode(pageMain);
 
     expect(pageMain).to.exist;
-    expect(pageMainNode).to.have.class('page-main');
+    expect(pageMainNode).to.have.class('courses');
   });
 });
