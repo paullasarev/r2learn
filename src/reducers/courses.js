@@ -13,6 +13,7 @@ let initialState = {
   isLoading: false,
   course: emptyCourse,
   items: [],
+  error: null,
 }
 
 export default function courses(state = initialState, action) {
@@ -21,31 +22,35 @@ export default function courses(state = initialState, action) {
       return state;
     }
     case actionTypes.COURSES_READ: {
-      return {
+      return { ...state,
         isLoading: true,
-        items: [...state.items],
-        course: state.course,
+        error: null,
       };
     }
     case actionTypes.COURSES_READ_SUCCESS: {
-      return {
+      return {...state,
         isLoading: false,
         items: action.payload,
-        course: state.course,
       };
     }
     case actionTypes.COURSES_GET: {
-      return {
+      return {...state,
         isLoading: true,
-        items: [...state.items],
         course: emptyCourse,
+        error: null,
       };
     }
     case actionTypes.COURSES_GET_SUCCESS: {
-      return {
+      return {...state,
         isLoading: false,
-        items: [...state.items],
         course: action.payload,
+      };
+    }
+    case actionTypes.COURSES_GET_ERROR: {
+      return {...state,
+        isLoading: false,
+        course: emptyCourse,
+        error: action.payload,
       };
     }
     case actionTypes.COURSES_UPDATE: {

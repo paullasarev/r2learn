@@ -4,6 +4,7 @@ import * as types from './types';
 import { assertType } from '../utils/assert';
 import { Course } from '../entities/course';
 import { Api } from '../api/mock';
+import { setError } from './app';
 
 const api = new Api();
 
@@ -27,6 +28,7 @@ export const read = function(filter) {
 
 export const getStart = createAction(types.COURSES_GET);
 export const getSuccess = createAction(types.COURSES_GET_SUCCESS, assertType.bind(null, Course));
+export const getError = createAction(types.COURSES_GET_ERROR, assertType.bind(null, Error));
 export const get = function(id) {
   return function(dispatch, getState) {
     dispatch(getStart());
@@ -35,6 +37,10 @@ export const get = function(id) {
       .get(id)
       .then((data)=>{
         dispatch(getSuccess(data));
+      })
+      .catch((error)=>{
+        dispatch(setError(error));
+        dispatch(getError(error));
       })
   }
 }

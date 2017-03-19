@@ -18,14 +18,15 @@ class Courses {
 
   get(id) {
     return new Promise((resolve, reject)=>{
-      if (!id) {
+      if (!id || id=="new") {
         resolve(new Course("", "Course", "New course", 120));
         return;
       }
 
       let item = find(courses, {id:id});
       if (!item) {
-        reject(Error(`no course with id=${id}`));
+        reject(new Error(`no course with id=${id}`));
+        return;
       }
 
       setTimeout(()=>{

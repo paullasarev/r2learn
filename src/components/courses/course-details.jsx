@@ -14,7 +14,6 @@ require('./course-details.css');
 
 export class CourseDetails extends React.Component {
   static propTypes = {
-    course: PropTypes.object,
     get: PropTypes.func.isRequired,
   };
 
@@ -31,6 +30,11 @@ export class CourseDetails extends React.Component {
   }
 
   componentWillReceiveProps(props) {
+    if (props.courses.error) {
+      this.props.history.push('/error');
+      return;
+    }
+
     this.setState({course: props.courses.course})
   }
 
