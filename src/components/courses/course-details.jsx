@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Action } from '../action/action';
 import { Course } from '../../entities/course';
 
-import { get, create } from '../../actions/courses';
+import { get, create } from '../../store/actions/courses';
 import * as format from '../../utils/format';
 
 import {FormGroup, FormInputText, FormInputNumber, FormInputTextArea} from "../form/form";

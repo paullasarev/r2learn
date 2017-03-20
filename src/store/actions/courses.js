@@ -1,9 +1,9 @@
 import { createAction } from 'redux-actions';
 import * as types from './types';
 
-import { assertType } from '../utils/assert';
-import { Course } from '../entities/course';
-import { Api } from '../api/mock';
+import { assertType } from '../../utils/assert';
+import { Course } from '../../entities/course';
+import { Api } from '../../api/mock';
 import { setError } from './app';
 
 const api = new Api();

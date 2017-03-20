@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { remove, read, create} from '../../actions/courses';
+import { remove, read, create} from '../../store/actions/courses';
 import { Toolbar } from './toolbar';
 import { CourseComponent } from './course';
 import { Course } from '../../entities/course';

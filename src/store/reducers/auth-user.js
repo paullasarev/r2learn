@@ -1,8 +1,8 @@
-import {assertType} from '../utils/assert';
+import {assertType} from '../../utils/assert';
 
 import * as actionTypes from '../actions/types';
-import {AuthUser} from '../entities/auth-user';
-import {User} from '../entities/user';
+import {AuthUser} from '../../entities/auth-user';
+import {User} from '../../entities/user';
 
 let initialState = new AuthUser('user');
 initialState.isLogged = true;
