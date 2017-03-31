@@ -6,13 +6,17 @@ import promise from 'redux-promise';
 
 import reducers from './reducers/reducers';
 
+import { Db } from './redux-db/src/db';
+
+let db = new Db();
+
 export function configureStore(initialState = {}) {
   return createStore(
-    reducers,
+    db.compose(reducers),
     initialState,
     composeWithDevTools(
       applyMiddleware(
-        thunk,
+        thunk.withExtraArgument(db),
         promise,
         // logger({diff:false})
       ),

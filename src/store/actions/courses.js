@@ -30,7 +30,12 @@ export const getStart = createAction(types.COURSES_GET);
 export const getSuccess = createAction(types.COURSES_GET_SUCCESS, assertType.bind(null, Course));
 export const getError = createAction(types.COURSES_GET_ERROR, assertType.bind(null, Error));
 export const get = function(id) {
-  return function(dispatch, getState) {
+  return function(dispatch, getState, db) {
+    // let data = db(getState)
+    //   .select('courses')
+    //   .get();
+    // console.log('get', data)
+
     dispatch(getStart());
 
     api.courses
