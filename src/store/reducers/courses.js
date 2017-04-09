@@ -16,27 +16,28 @@ export default handleActions({
   [actionTypes.COURSES_CREATE]: (state, action) => ({
     ...state
   }),
-  [actionTypes.COURSES_READ]: (state, action) => ({
-    ...state,
-    isLoading: true,
-    error: null,
-  }),
-  [actionTypes.COURSES_READ_SUCCESS]: (state, {payload: items}) => ({
-    ...state,
-    isLoading: false,
-    items: items,
-  }),
-  [actionTypes.COURSES_GET]: (state, action) => ({
-    ...state,
-    isLoading: true,
-    course: emptyCourse,
-    error: null,
-  }),
-  [actionTypes.COURSES_GET_SUCCESS]: (state, {payload: course}) => ({
-    ...state,
-    isLoading: false,
-    course: course,
-  }),
+  [actionTypes.COURSES_READ_START]: (state, action) => (
+    {...state, isLoading: true, error: null}
+  ),
+  [actionTypes.COURSES_READ_END]: {
+    next(state, {payload: items}) {
+      return {...state, isLoading: false, items: items}
+    },
+    throw(error) {
+      return {...state, isLoading: false, error: error}
+    }
+  },
+  [actionTypes.COURSES_GET_START]: (state, action) => (
+    {...state, isLoading: true, course: emptyCourse, error: null}
+  ),
+  [actionTypes.COURSES_GET_END]: {
+    next(state, {payload: course}) {
+      return {...state, isLoading: false, course: course}
+    },
+    throw(error) {
+      return {...state, isLoading: false, error: error}
+    }
+  },
   [actionTypes.COURSES_UPDATE]: (state, action) => ({
     ...state,
   }),

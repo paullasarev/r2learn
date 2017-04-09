@@ -12,8 +12,8 @@ export const create = createAction(types.COURSES_CREATE, assertType.bind(null, C
 export const update = createAction(types.COURSES_UPDATE, assertType.bind(null, /*id*/'string'));
 export const remove = createAction(types.COURSES_REMOVE, assertType.bind(null, /*id*/'string'));
 
-export const readStart = createAction(types.COURSES_READ);
-export const readSuccess = createAction(types.COURSES_READ_SUCCESS, assertType.bind(null, Array));
+export const readStart = createAction(types.COURSES_READ_START);
+export const readEnd = createAction(types.COURSES_READ_END, assertType.bind(null, Array));
 export const read = function(filter) {
   return function(dispatch, getState) {
     dispatch(readStart());
@@ -21,14 +21,17 @@ export const read = function(filter) {
     api.courses
       .list(filter)
       .then((data)=>{
-        dispatch(readSuccess(data));
+        dispatch(readEnd(data));
+      })
+      .catch((error)=>{
+        dispatch(readEnd(error));
       })
   }
 }
 
-export const getStart = createAction(types.COURSES_GET);
-export const getSuccess = createAction(types.COURSES_GET_SUCCESS, assertType.bind(null, Course));
-export const getError = createAction(types.COURSES_GET_ERROR, assertType.bind(null, Error));
+export const getStart = createAction(types.COURSES_GET_START);
+export const getEnd = createAction(types.COURSES_GET_END, assertType.bind(null, Course));
+// export const getError = createAction(types.COURSES_GET_ERROR, assertType.bind(null, Error));
 export const get = function(id) {
   return function(dispatch, getState, db) {
     // let data = db(getState)
@@ -41,11 +44,11 @@ export const get = function(id) {
     api.courses
       .get(id)
       .then((data)=>{
-        dispatch(getSuccess(data));
+        dispatch(getEnd(data));
       })
       .catch((error)=>{
         dispatch(setError(error));
-        dispatch(getError(error));
+        dispatch(getEnd(error));
       })
   }
 }
