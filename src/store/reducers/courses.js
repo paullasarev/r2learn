@@ -1,5 +1,5 @@
 import { assertType } from '../../utils/assert';
-import {combineReducers} from 'redux';
+import { handleActions } from 'redux-actions';
 
 import * as actionTypes from '../actions/types';
 import { Course } from '../../entities/course';
@@ -12,55 +12,39 @@ let initialState = {
   error: null,
 }
 
-function itemsReducer(state = [], action)
-{
-  
-}
+export default handleActions({
+  [actionTypes.COURSES_CREATE]: (state, action) => ({
+    ...state
+  }),
+  [actionTypes.COURSES_READ]: (state, action) => ({
+    ...state,
+    isLoading: true,
+    error: null,
+  }),
+  [actionTypes.COURSES_READ_SUCCESS]: (state, {payload: items}) => ({
+    ...state,
+    isLoading: false,
+    items: items,
+  }),
+  [actionTypes.COURSES_GET]: (state, action) => ({
+    ...state,
+    isLoading: true,
+    course: emptyCourse,
+    error: null,
+  }),
+  [actionTypes.COURSES_GET_SUCCESS]: (state, {payload: course}) => ({
+    ...state,
+    isLoading: false,
+    course: course,
+  }),
+  [actionTypes.COURSES_UPDATE]: (state, action) => ({
+    ...state,
+  }),
+  [actionTypes.COURSES_CREATE]: (state, action) => ({
+    ...state,
+  }),
+  [actionTypes.COURSES_REMOVE]: (state, action) => ({
+    ...state,
+  }),
+}, initialState);
 
-export default function courses(state = initialState, action) {
-  switch (action.type) {
-    case actionTypes.COURSES_CREATE: {
-      return state;
-    }
-    case actionTypes.COURSES_READ: {
-      return { ...state,
-        isLoading: true,
-        error: null,
-      };
-    }
-    case actionTypes.COURSES_READ_SUCCESS: {
-      return {...state,
-        isLoading: false,
-        items: action.payload,
-      };
-    }
-    case actionTypes.COURSES_GET: {
-      return {...state,
-        isLoading: true,
-        course: emptyCourse,
-        error: null,
-      };
-    }
-    case actionTypes.COURSES_GET_SUCCESS: {
-      return {...state,
-        isLoading: false,
-        course: action.payload,
-      };
-    }
-    case actionTypes.COURSES_GET_ERROR: {
-      return {...state,
-        isLoading: false,
-        course: emptyCourse,
-        error: action.payload,
-      };
-    }
-    case actionTypes.COURSES_UPDATE: {
-      return state;
-    }
-    case actionTypes.COURSES_REMOVE: {
-      return state;
-    }
-    default:
-      return state;
-  }
-}
